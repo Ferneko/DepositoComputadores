@@ -4,11 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="card">
+    <div class="card-header">Pesquisa de Locais</div>
+    <div class="card-body">
+        <form action="/Locais/Index" method="get">
+            <div class="row">
+                <div class="col-2">
+                    <a href="/Locais/Create" class="btn btn-success">
+                        Novo Local
+                    </a>
+                </div>
+                <div class="col-3">
+                    <select name="tipoPesquisa" class="form-control">
+                        <option value="Todos">Todos</option>
+                        <option value="descricao">Descricao</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <input type="text" name="texto" class="form-control" placeholder="Digite sua busca aqui" />
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -22,20 +43,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

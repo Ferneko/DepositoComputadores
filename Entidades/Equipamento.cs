@@ -10,7 +10,7 @@ namespace DepositoComputadores.Entidades
         public int Id { get; set; }
         public string numeroPatrimonio { get; set; }
         public string Descricao { get; set; }
-        public int Id_Local { get; set; }
+        public int LocalId { get; set; }
         public Local Local { get; set; }
     }
 }

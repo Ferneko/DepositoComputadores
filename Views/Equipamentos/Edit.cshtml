@@ -1,0 +1,43 @@
+﻿@model DepositoComputadores.Entidades.Equipamento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Equipamento</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+           
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" readonly="readonly" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="numeroPatrimonio" class="control-label"></label>
+                <input asp-for="numeroPatrimonio" class="form-control" />
+                <span asp-validation-for="numeroPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalId" class="control-label"></label>
+                <input asp-for="LocalId" class="form-control" />
+                <span asp-validation-for="LocalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

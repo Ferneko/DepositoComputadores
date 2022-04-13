@@ -1,0 +1,48 @@
+﻿@model DepositoComputadores.Models.EquipamentoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastro de Equipamento</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+
+
+            <div class="form-group">
+                <label asp-for="numeroPatrimonio" class="control-label"></label>
+                <input asp-for="numeroPatrimonio" class="form-control" />
+                <span asp-validation-for="numeroPatrimonio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Alocado em:</label>
+                <select name="LocalId" class="form-control">
+                    @if (Model.TodosLocais.Count > 0)
+                    {
+                        @foreach (var item in Model.TodosLocais)
+                        {
+                            <option value="@item.Id"> @item.Descricao </option>
+                        }
+                    }
+                    else
+                    {
+                        <option> Por favor cadastre um local </option>
+                    }
+                </select>
+
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

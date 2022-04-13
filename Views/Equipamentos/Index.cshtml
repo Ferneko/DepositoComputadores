@@ -7,39 +7,41 @@
 <div class="card">
     <div class="card-header">Pesquisa de Equipamentos</div>
     <div class="card-body">
-        <div class="row">
-            <div class="col-2">
-                <a href="/Equipamentos/Index" class="btn btn-success">
-                    Novo Equipamento
-                </a>
+        <form action="/Equipamentos/Index" method="get">
+            <div class="row">
+                <div class="col-2">
+                    <a href="/Equipamentos/Create" class="btn btn-success">
+                        Novo Equipamento
+                    </a>
+                </div>
+                <div class="col-3">
+                    <select name="tipoPesquisa" class="form-control">
+                        <option value="Todos">Todos</option>
+                        <option value="patrimonio">Nº Patrimônio</option>
+                        <option value="descricao">Descricao</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <input type="text" name="texto" class="form-control" placeholder="Digite sua busca aqui" />
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </div>
             </div>
-            <div class="col-3">
-                <select name="tipoPesquisa">
-                    <option value="Todos">Todos</option>
-                    <option value="patrimonio">Nº Patrimônio</option>
-                    <option value="descricao">Descricao</option>
-                </select>
-            </div>
-            <div class="col-3">
-                <input type="text" name="texto" class="form-control" placeholder="Digite sua busca aqui" />
-            </div>
-            <div class="col-3">
-                <button type="submit" class="btn btn-primary">Pesquisar</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+               Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                Descrição do Equipamento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Id_Local)
+                Local armazenado
             </th>
             <th></th>
         </tr>
@@ -54,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Id_Local)
+                @item.Local.Descricao
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
